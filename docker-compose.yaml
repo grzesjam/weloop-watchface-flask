@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  weloop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./uploads/:/app/uploads/ # mount uploads folder to the container
+    ports:
+      - "5000:5000" # expose port 5000 to the host machine
