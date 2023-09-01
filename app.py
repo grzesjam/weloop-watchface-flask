@@ -82,6 +82,24 @@ def watch():
 
     return answer
 
+# Mock login responses for chronos eco
+@app.route('/login.do', methods=['get', 'post'])
+def loginMock():
+    response = ('{"result":"0000","accessToken":"sampleAccessToken","age":"28","allRank":"1","averagepoint":"99",'
+                '"birthday":"1995-05-10","compliancedays":"365","distance":"10",'
+                '"headPic":"https://sample.com/image.jpg","nickname":"John Doe","openid":"sampleOpenid",'
+                '"pointChampion":"66","pointCount":"550","runChampion":"25","sex":"M","sleepTime":"8",'
+                '"stature":"175","useddate":"2023-02-01","userid":"sampleUserid","weekRank":"5","weight":"70"}')
+    return response
+
+@app.route('/get_personal_info.do', methods=['get', 'post'])
+def getPersonalInfoMock():
+    response = ('{"age":"28","allchampion":"1","averagepoint":"99","birthday":"1995-05-10","compliancedays":"365",'
+                '"distances":"10","email":"johndoe@example.com","friendMark":"Y",'
+                '"headPicUrl":"https://sample.com/image.jpg","nickname":"John Doe","pointChampion":"66",'
+                '"poitCount":"550","runChampion":"25","sex":"M","stature":"175","useddate":"2023-02-01",'
+                '"weekporintPercentage":"50","weekrunPercentage":"50","weight":"70"}')
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
